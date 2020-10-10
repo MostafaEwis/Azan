@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="209px" height="288px" viewBox="0 0 209 288" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <g id="moon">
+    <path d="M144 288C64.596 288 0 223.404 0 144C0 64.596 64.596 0 144 0C166.728 0 187.56 5.964 208.44 14.148C173.064 20.196 96 53.34 96 144C96 233.448 167.004 266.496 208.44 273.852C190.44 284.004 166.728 288 144 288L144 288Z" id="Shape" fill="#000000" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>
