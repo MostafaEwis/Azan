@@ -14,7 +14,6 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  text-align: left;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: row;
@@ -28,6 +27,13 @@ body {
 }
 
 .date {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 1600;
+  margin: 0%;
+}
+
+.tarekh {
   text-align: right;
   font-size: 18px;
   font-weight: 1600;
@@ -42,6 +48,13 @@ body {
 }
 
 .times {
+  text-align: left;
+  font-size: 1em;
+  width: max-content;
+  margin: 20px;
+}
+
+.awqat {
   text-align: right;
   font-size: 1em;
   width: max-content;
@@ -75,7 +88,6 @@ body {
   width: 24px;
   height: 18px;
   border: none;
-  border-radius: 2%;
 }
 
 img {
@@ -99,11 +111,12 @@ a:active {
 }
 
 @media only screen and (max-width: 800px) {
+  .tarekh,
   .date {
     font-size: 16px;
   }
   #times {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   footer {
     font-size: 10px;
@@ -111,7 +124,10 @@ a:active {
   #lang {
     left: 10%;
   }
+  .awqat,
   .times {
+    font-size: 14px;
+    margin: 8px;
     width: unset;
   }
 }
