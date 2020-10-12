@@ -22,7 +22,39 @@ var lang = document.getElementById("lang");
 var currentTheme = true;
 var currentLang = true;
 
-happen("ar");
+if (localStorage.getItem("theme") == "black") {
+  document.querySelector("body").style =
+    "background-color: black; color: white;";
+  document.getElementById("icon").src = "./sun.svg";
+  document.getElementById("icon").style = "filter: invert(100%);";
+  document.getElementById("aladhan").style = "color: white;";
+  currentTheme = false;
+}
+
+if (localStorage.getItem("language") == "en") {
+  if (currentLang) {
+    document.getElementById("date").style = "left: 5%";
+    document.getElementById("month").style = "right: 5%; left: unset;";
+    lang.textContent = "ع";
+    timingsContainer.textContent = "";
+    if (window.matchMedia("(max-width: 600px)").matches) {
+      timingsContainer.style = "flex-direction: column;";
+    } else {
+      timingsContainer.style = "flex-direction: row;";
+    }
+    happen("en");
+    localStorage.setItem("language", "en");
+    currentLang = !currentLang;
+  }
+} else {
+  lang.textContent = "EN";
+  if (matchMedia("(max-width: 600px)").matches) {
+    timingsContainer.style = "flex-direction: column-reverse;";
+  } else {
+    timingsContainer.style = "flex-direction: row;";
+  }
+  happen("ar");
+}
 
 lang.addEventListener("click", () => {
   if (currentLang) {
@@ -36,6 +68,7 @@ lang.addEventListener("click", () => {
       timingsContainer.style = "flex-direction: row;";
     }
     happen("en");
+    localStorage.setItem("language", "en");
     currentLang = !currentLang;
   } else {
     document.getElementById("date").style = "right: 5%";
@@ -48,6 +81,7 @@ lang.addEventListener("click", () => {
       timingsContainer.style = "flex-direction: row;";
     }
     happen("ar");
+    localStorage.setItem("language", "ar");
     currentLang = !currentLang;
   }
 });
@@ -60,6 +94,7 @@ theme.addEventListener("click", () => {
     document.getElementById("icon").style = "filter: invert(100%);";
     document.getElementById("aladhan").style = "color: white;";
     currentTheme = false;
+    localStorage.setItem("theme", "black");
   } else {
     document.querySelector("body").style =
       "background-color: white; color: black;";
@@ -67,6 +102,7 @@ theme.addEventListener("click", () => {
     document.getElementById("icon").src = "./moon.svg";
     document.getElementById("aladhan").style = "color: black;";
     currentTheme = true;
+    localStorage.setItem("theme", "white");
   }
 });
 

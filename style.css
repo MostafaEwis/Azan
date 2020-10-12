@@ -102,6 +102,12 @@ footer {
   bottom: 0%;
 }
 
+.footerText {
+  position: static;
+  padding: 0%;
+  margin: 0%;
+}
+
 a:link,
 a:visited,
 a:hover,
@@ -121,6 +127,9 @@ a:active {
   footer {
     font-size: 10px;
   }
+  .footerText {
+    position: static;
+  }
   #lang {
     left: 10%;
   }
@@ -129,5 +138,16 @@ a:active {
     font-size: 14px;
     margin: 8px;
     width: unset;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  footer {
+    font-size: 8px;
+  }
+  .footerText {
+    position: absolute;
+    left: 20%;
+    bottom: 0%;
   }
 }
