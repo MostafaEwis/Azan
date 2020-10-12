@@ -19,7 +19,6 @@ var loading = document.createElement("p");
 var hijriMonth = document.createElement("p");
 var theme = document.getElementById("theme");
 var lang = document.getElementById("lang");
-var times = document.getElementsByClassName("times");
 var currentTheme = true;
 var currentLang = true;
 
@@ -28,7 +27,7 @@ happen("ar");
 lang.addEventListener("click", () => {
   document.querySelector("footer").style.textAlign = "center";
   if (currentLang) {
-    document.body.style.textAlign = "left";
+    timingsContainer.style.textAlign = "left";
     lang.textContent = "ع";
     timingsContainer.textContent = "";
     if (window.matchMedia("(max-width: 600px)").matches) {
@@ -39,13 +38,13 @@ lang.addEventListener("click", () => {
     happen("en");
     currentLang = !currentLang;
   } else {
-    document.body.style.textAlign = "right";
+    timingsContainer.style.textAlign = "right";
     lang.textContent = "EN";
     timingsContainer.textContent = "";
     if (matchMedia("(max-width: 600px)").matches) {
       timingsContainer.style = "flex-direction: column-reverse;";
     } else {
-      timingsContainer.style = "flex-direction: row-reverse;";
+      timingsContainer.style = "flex-direction: row;";
     }
     happen("ar");
     currentLang = !currentLang;
@@ -113,9 +112,15 @@ async function happen(lang) {
     })
     .catch((error) => console.error(error));
 
-  hijri.className = "date";
-  hijriMonth.className = "date";
-  gregorian.className = "date";
+  if (lang == "en") {
+    hijri.className = "date";
+    hijriMonth.className = "date";
+    gregorian.className = "date";
+  } else {
+    hijri.className = "tarekh";
+    hijriMonth.className = "tarekh";
+    gregorian.className = "tarekh";
+  }
   hijriGreg.appendChild(hijri);
   month.appendChild(hijriMonth);
   hijriGreg.appendChild(gregorian);
@@ -136,7 +141,11 @@ async function happen(lang) {
         Object.keys(prayers)[i]
       ].slice(0, -5)}`;
     }
-    prayersA[i].className = "times";
+    if (lang == "en") {
+      prayersA[i].className = "times";
+    } else {
+      prayersA[i].className = "awqat";
+    }
   }
 
   //appending childs from start to the end of the array or reverse depending on the language
