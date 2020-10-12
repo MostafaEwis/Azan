@@ -25,9 +25,9 @@ var currentLang = true;
 happen("ar");
 
 lang.addEventListener("click", () => {
-  document.querySelector("footer").style.textAlign = "center";
   if (currentLang) {
-    timingsContainer.style.textAlign = "left";
+    document.getElementById("date").style = "left: 5%";
+    document.getElementById("month").style = "right: 5%; left: unset;";
     lang.textContent = "ع";
     timingsContainer.textContent = "";
     if (window.matchMedia("(max-width: 600px)").matches) {
@@ -38,7 +38,8 @@ lang.addEventListener("click", () => {
     happen("en");
     currentLang = !currentLang;
   } else {
-    timingsContainer.style.textAlign = "right";
+    document.getElementById("date").style = "right: 5%";
+    document.getElementById("month").style = "left: 5%";
     lang.textContent = "EN";
     timingsContainer.textContent = "";
     if (matchMedia("(max-width: 600px)").matches) {
