@@ -1,5 +1,5 @@
 const TIME = new Date();
-const URL = `http://api.aladhan.com/v1/calendarByCity?city=Cairo&country=Egypt&method=2&month=${
+const URL = `https://api.aladhan.com/v1/calendarByCity?city=Cairo&country=Egypt&method=2&month=${
   TIME.getMonth() + 1
 }&year=${TIME.getFullYear()}`;
 var arabicP = ["الفجر", "الشروق", "الظهر", "العصر", "المغرب", "العشاء"];
