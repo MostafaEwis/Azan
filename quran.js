@@ -11,11 +11,7 @@ async function getAya() {
   await fetch(url)
     .then((data) => data.json())
     .then((data) => {
-      if (data.data.text.length > 250) {
-        getAya();
-      } else {
-        aya.textContent = data.data.text;
-        document.getElementById("aya").appendChild(aya);
-      }
+      aya.textContent = data.data.text;
+      document.getElementById("aya").appendChild(aya);
     });
 }
