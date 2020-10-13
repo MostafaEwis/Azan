@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="339px" height="339px" viewBox="0 0 339 339" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <path d="M0 167C0 74.7684 74.7684 0 167 0C259.232 0 334 74.7684 334 167C334 259.232 259.232 334 167 334C74.7684 334 0 259.232 0 167Z" transform="translate(2.5 2.5)" id="Ellipse" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="5" />
+  <path d="M115.432 0C51.6807 0 0 51.6807 0 115.432C0 176.889 48.0276 227.129 108.598 230.665C63.6434 214.884 31.4119 172.066 31.4119 121.72C31.4119 57.9687 83.0926 6.28799 146.844 6.28799C149.138 6.28799 151.417 6.35494 153.679 6.48698C141.709 2.28508 128.837 0 115.432 0Z" transform="matrix(0.9781476 -0.2079117 0.2079117 0.9781476 70.79996 73.260925)" id="Mask-Difference" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+</svg>
