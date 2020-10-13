@@ -16,7 +16,6 @@ body {
   width: 90%;
   font-size: 22px;
   position: absolute;
-  width: fit-content;
   top: 30%;
   left: 50%;
   overflow-y: scroll;
