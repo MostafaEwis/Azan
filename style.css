@@ -13,6 +13,7 @@ body {
 
 #aya {
   font-family: "Amiri", serif;
+  width: 90%;
   font-size: 22px;
   position: absolute;
   width: fit-content;
