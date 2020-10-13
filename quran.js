@@ -1,5 +1,5 @@
 var random = getRndInteger(2, 6236);
-var url = `http://api.alquran.cloud/v1/ayah/${random}/ar.asad`;
+var url = `https://api.alquran.cloud/v1/ayah/${random}/ar.asad`;
 var aya = document.createElement("p");
 var ayaContainer = document.getElementById("aya");
 getAya();
