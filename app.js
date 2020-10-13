@@ -1,5 +1,5 @@
-const TIME = new Date();
-const URL = `https://api.aladhan.com/v1/calendarByCity?city=Cairo&country=Egypt&method=5&month=${
+var TIME = new Date();
+var APILink = `https://api.aladhan.com/v1/calendarByCity?city=Cairo&country=Egypt&method=5&month=${
   TIME.getMonth() + 1
 }&year=${TIME.getFullYear()}`;
 var arabicTimings = ["الفجر", "الشروق", "الظهر", "العصر", "المغرب", "العشاء"];
@@ -19,8 +19,11 @@ var loading = document.createElement("p");
 var hijriMonth = document.createElement("p");
 var theme = document.getElementById("theme");
 var lang = document.getElementById("lang");
+// var nach = document.getElementById("nach");
+// var vor = document.getElementById("vor");
 var currentTheme = true;
 var currentLang = true;
+var current = "ar";
 
 if (localStorage.getItem("theme") == "black") {
   document.querySelector("body").style =
@@ -33,6 +36,7 @@ if (localStorage.getItem("theme") == "black") {
 
 if (localStorage.getItem("language") == "en") {
   if (currentLang) {
+    current = "en";
     document.getElementById("date").style = "left: 5%";
     document.getElementById("month").style = "right: 5%; left: unset;";
     lang.textContent = "ع";
@@ -42,22 +46,24 @@ if (localStorage.getItem("language") == "en") {
     } else {
       timingsContainer.style = "flex-direction: row;";
     }
-    happen("en");
+    happen(current);
     localStorage.setItem("language", "en");
     currentLang = !currentLang;
   }
 } else {
+  current = "ar";
   lang.textContent = "EN";
-  if (matchMedia("(max-width: 600px)").matches) {
+  if (matchMedia("(max-width: 800px)").matches) {
     timingsContainer.style = "flex-direction: column-reverse;";
   } else {
     timingsContainer.style = "flex-direction: row;";
   }
-  happen("ar");
+  happen(current);
 }
 
 lang.addEventListener("click", () => {
   if (currentLang) {
+    current = "en";
     document.getElementById("date").style = "left: 5%";
     document.getElementById("month").style = "right: 5%; left: unset;";
     lang.textContent = "ع";
@@ -67,10 +73,11 @@ lang.addEventListener("click", () => {
     } else {
       timingsContainer.style = "flex-direction: row;";
     }
-    happen("en");
+    happen(current);
     localStorage.setItem("language", "en");
     currentLang = !currentLang;
   } else {
+    current = "ar";
     document.getElementById("date").style = "right: 5%";
     document.getElementById("month").style = "left: 5%";
     lang.textContent = "EN";
@@ -80,7 +87,7 @@ lang.addEventListener("click", () => {
     } else {
       timingsContainer.style = "flex-direction: row;";
     }
-    happen("ar");
+    happen(current);
     localStorage.setItem("language", "ar");
     currentLang = !currentLang;
   }
@@ -106,7 +113,7 @@ theme.addEventListener("click", () => {
   }
 });
 
-async function happen(lang) {
+async function happen(lang, day = TIME.getDate() + 1) {
   //making loading placeholder
   if (lang == "ar") {
     loading.textContent = "... جاري التحميل";
@@ -127,7 +134,7 @@ async function happen(lang) {
     type = false;
   }
   // fetching data from azan API and assiging it to variables and DOM elements
-  await fetch(URL)
+  await fetch(APILink)
     .then((data) => data.json())
     .then((data) => {
       m = data.data[TIME.getDate() + 1].date.hijri.month;
