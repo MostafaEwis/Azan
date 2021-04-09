@@ -194,7 +194,7 @@ async function happen(lang, day = TIME.getDate() + 1) {
 
   //appending childs from start to the end of the array or reverse depending on the language
   // this is a comment
- 
+  // this is another comment
   if (lang == "ar") {
     for (var i = prayersA.length - 1; i > -1; i--) {
       timingsContainer.appendChild(prayersA[i]);
